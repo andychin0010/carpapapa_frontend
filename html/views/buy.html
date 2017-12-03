@@ -1,0 +1,205 @@
+<!--Filters Modal-->
+<div class="modal fade" id="filterModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button></div>
+      <div class="modal-body">
+        <!--Here goes filters dynamically pasted by jQuery-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Filters Toggle-->
+<div class="filter-toggle" data-toggle="modal" data-target="#filterModal"><i class="fa fa-filter"></i></div>
+
+<!--Page Content-->
+<div class="page-content">
+
+  <!--Breadcrumbs-->
+  <ol class="breadcrumb">
+    <li><a href="/#!/home">Home</a></li>
+    <li>Inventory</li>
+  </ol>
+  <!--Breadcrumbs Close-->
+
+  <!--Catalog Grid-->
+  <section class="catalog-grid">
+    <div class="container">
+      <h2 class="with-sorting">Inventory</h2>
+      <div class="sorting">
+        <a href="#">Sort by name</a>
+        <a href="#">Sort by price</a>
+      </div>
+      <!-- <div class="subnav">
+        <a href="#">iPhone cases</a>
+        <a href="#">iPad cases</a>
+      </div> -->
+      <div class="row">
+
+        <!--Filters-->
+        <div class="filters-mobile col-lg-3 col-md-3 col-sm-4">
+          <div class="shop-filters">
+
+            <!-- <section class="filter-section">
+                <input class="btn btn-primary btn-sm" style="width:100%" type="submit" value="Filter" ng-click="filter()">
+            </section> -->
+            <!--Price Section-->
+            <section class="filter-section">
+              <h3>Filter by price</h3>
+              <form method="get" name="price-filters">
+                <!-- <span class="clear" id="clearPrice">Clear price</span> -->
+                <!-- <div class="price-btns">
+                  <button class="btn btn-success btn-sm" value="below 50$">below 50$</button><br/>
+                  <button class="btn btn-success btn-sm disabled" value="50$-100$">50$-100$</button><br/>
+                  <button class="btn btn-success btn-sm" value="100$-300$">100$-300$</button><br/>
+                  <button class="btn btn-success btn-sm" value="300$-1000$">300$-1000$</button>
+                </div> -->
+                <div class="price-slider">
+                  <div id="price-range"></div>
+                  <div class="values group" style="width:100%">
+                    <!--data-min-val represent minimal price and data-max-val maximum price respectively in pricing slider range; value="" - default values-->
+                    <!-- <span class="labels"></span> -->
+                    <input class="form-control" name="minVal" id="minVal" type="text" data-min-val="1000" value="0" style="width:47%">
+                    <span class="labels"> - </span>
+                    <input class="form-control" name="maxVal" id="maxVal" type="text" data-max-val="200000" value="200000" style="width:46%">
+                  </div>
+                </div>
+              </form>
+            </section>
+
+            <!--Colors Section-->
+            <section class="filter-section">
+                <h3>Filter by Brand</h3>
+                <span class="clear clearChecks" ng-click="clearBrands()">Clear brands</span>
+                <select class="form-control" id="sel1" ng-init="brandFilter = brandFilter || 'Please select'" ng-model="brandFilter" ng-change="filter(brandFilter, colorFilter)">
+                    <option disabled>Please select</option>
+                    <option>AUDI</option>
+                    <option>CHEVROLET</option>
+                    <option>MASERATI</option>
+                    <option>MERCEDES BENZ</option>
+                    <option>LAND ROVER</option>
+                </select>
+            </section>
+
+            <section class="filter-section">
+                <h3>Filter by Color</h3>
+                <span class="clear clearChecks" ng-click="clearColors()">Clear colors</span>
+                <select class="form-control" id="sel1" ng-init="colorFilter = colorFilter || 'Please select'" ng-model="colorFilter" ng-change="filter(brandFilter, colorFilter)">
+                    <option disabled>Please select</option>
+                    <option>BLACK</option>
+                    <option>WHITE</option>
+                    <option>SILVER</option>
+                </select>
+            </section>
+
+            <!-- <section class="filter-section">
+              <h3>Filter by color</h3>
+              <span class="clear clearChecks">Clear colors</span>
+              <label>
+                <input type="checkbox" name="colors" value="black" id="color_0" checked>
+                Black (12)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="colors" value="white" id="color_1">
+                White (1)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="colors" value="green" id="color_2">
+                Green  (34)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="colors" value="blue" id="color_3">
+                Blue (23)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="colors" value="red" id="color_4">
+                Red (12)</label>
+            </section> -->
+
+            <!--Colors Section-->
+            <!-- <section class="filter-section">
+              <h3>Filter by size</h3>
+              <span class="clear clearChecks">Clear size</span>
+              <label>
+                <input type="checkbox" name="sizes" value="small" id="size_0" checked>
+                Small (12)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="sizes" value="white" id="size_1">
+                Medium (34)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="sizes" value="green" id="size_2">
+                Large (11)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="sizes" value="blue" id="size_3">
+                Extra large (1)</label>
+              <br>
+              <label>
+                <input type="checkbox" name="sizes" value="red" id="size_4">
+                Superman (0)</label>
+            </section> -->
+
+            <!--Categories Section-->
+            <!-- <section class="filter-section">
+              <h3>Categories</h3>
+              <ul class="categories">
+                <li class="has-subcategory"><a href="#">iPhone cases (123)</a>
+                  <ul class="subcategory">
+                    <li><a href="#">iPhone cases (1)</a></li>
+                    <li><a href="#">iPad cases (45)</a></li>
+                    <li><a href="#">MacBook cases (34)</a></li>
+                    <li><a href="#">Something (12)</a></li>
+                    <li><a href="#">Air cases (23)</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">iPad cases (34)</a></li>
+                <li><a href="#">MacBook cases (78)</a></li>
+                <li class="has-subcategory"><a href="#">Something (45)</a>
+                  <ul class="subcategory">
+                    <li><a href="#">Subcategory (1)</a></li>
+                    <li><a href="#">Subcategory (45)</a></li>
+                    <li><a href="#">Subcategory (23)</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Air cases (23)</a></li>
+              </ul>
+            </section> -->
+          </div>
+        </div>
+
+        <!--Tiles-->
+        <div class="col-lg-9 col-md-9 col-sm-8">
+          <div class="row">
+            <!--Tile-->
+            <div class="col-lg-4 col-md-6 col-sm-12" ng-repeat="product in products">
+              <div class="tile">
+                <div class="badges">
+                  <span ng-class="product.badge"></span>
+                </div>
+                <div class="price-label">{{product.price | currency:"$":0}}</div>
+                <a ng-href="#!/buy/details/{{product.id}}"><img ng-src="{{product.images[0].path}}" alt="1"/></a>
+                <div class="footer">
+                  <a ng-href="#!/buy/details/{{product.id}}" style="font-weight: 500">{{product.year}} {{product.make}}</a>
+                  <span style="color: #2f343b; font-weight:400">{{product.model}}</span>
+                  <span>Mileage: {{product.mileage | number}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Pagination-->
+          <!-- <ul class="pagination">
+            <li class="prev-page"><a class="icon-arrow-left" href="#"></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li class="next-page"><a class="icon-arrow-right" href="#"></a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </section><!--Catalog Grid Close-->
+</div><!--Page Content Close-->

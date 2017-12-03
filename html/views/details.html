@@ -1,0 +1,280 @@
+<!--Page Content-->
+<div class="page-content">
+
+  <!--Breadcrumbs-->
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="#!/buy">Inventory</a></li>
+    <li>{{product.make}} {{product.model}}</li>
+  </ol><!--Breadcrumbs Close-->
+
+  <!--Shopping Cart Message-->
+  <section class="cart-message">
+  	<i class="fa fa-check-square"></i>
+    <p class="p-style3">"Nikon" was successfully added to your cart.</p>
+    <a class="btn-outlined-invert btn-success btn-sm" href="shopping-cart.html">View cart</a>
+  </section><!--Shopping Cart Message Close-->
+
+  <!--Catalog Single Item-->
+  <section class="catalog-single">
+  	<div class="container">
+      <div class="row">
+
+      	<!--Product Gallery-->
+        <div class="col-lg-6 col-md-6">
+          <div class="prod-gal master-slider" id="prod-gal">
+          </div>
+        </div>
+
+        <!--Product Description-->
+        <div class="col-lg-6 col-md-6">
+          <h1>{{product.year}} {{product.make}} {{product.model}}</h1>
+          <!-- <div class="old-price">{{30000 | currency:"$":0}}</div> -->
+          <div class="price">{{product.price | currency:"$":0}}</div>
+          <span style="color:#b2b2b2;">{{product.mileage | number:0}} mi</span>
+          <!-- <p class="p-style2">{{product.description}}</p> -->
+          <!-- <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-5">
+              <h3>Tell friedns</h3>
+              <div class="social-links">
+                <a href="#"><i class="fa fa-tumblr-square"></i></a>
+                <a href="#"><i class="fa fa-pinterest-square"></i></a>
+                <a href="#"><i class="fa fa-facebook-square"></i></a>
+              </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-7">
+              <h3>Tags</h3>
+              <div class="tags">
+                <a href="#">Nikon, </a>
+                <a href="#">camera, </a>
+                <a href="#">hd video</a>
+              </div>
+            </div>
+          </div> -->
+          <!-- <div class="promo-labels">
+            <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span><i class="fa fa-truck"></i>Free delivery</span></div>
+            <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-space-shuttle"></i>Deliver even on Mars</div>
+            <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-shield"></i>Safe Buy</div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section><!--Catalog Single Item Close-->
+
+
+
+  <section style="font-weight:300; margin-bottom:40px">
+      <div style="margin:0 15px">
+          <div style="border-top:1px solid #dddddd; padding:10px 15px">
+              <div style="font-size:1.2em" ng-click="openSpecification()">
+                  Specification
+                  <span class="pull-right" style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
+              </div>
+              <div ng-if="accordion.isSpecificationOpen" style="font-size:0.8em; margin-top:10px; padding-left:20px">
+                  <div ng-if="product.engine"><span style="font-weight:500">Engine: </span>{{product.engine}}</div>
+                  <div ng-if="product.horsePower"><span style="font-weight:500">Horsepower: </span>{{product.horsePower}} hp</div>
+                  <div ng-if="product.torque"><span style="font-weight:500">Torque: </span>{{product.torque}} lb-ft</div>
+                  <div ng-if="product.mpgCity || product.mpgHighway"><span style="font-weight:500">MPG: </span>{{product.mpgCity}} city / {{product.mpgHighway}} highway</div>
+                  <div ng-if="product.drivetrain"><span style="font-weight:500">Drivetrain: </span>{{product.drivetrain}}</div>
+              </div>
+          </div>
+          <div ng-if="options.exterior.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
+              <div style="font-size:1.2em" ng-click="openExterior()">
+                  Exterior
+                  <span class="pull-right" style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
+              </div>
+              <div ng-if="accordion.isExteriorOpen" style="font-size:0.8em; margin-top:10px; padding-left:20px">
+                  <div ng-repeat="exterior in options.exterior">
+                      <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{exterior}}
+                  </div>
+              </div>
+          </div>
+          <div ng-if="options.interior.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
+              <div style="font-size:1.2em" ng-click="openInterior()">
+                  Interior
+                  <span class="pull-right"style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
+              </div>
+              <div ng-if="accordion.isInteriorOpen" style="font-size:0.8em; margin-top:10px; padding-left:20px">
+                  <div ng-repeat="interior in options.interior">
+                      <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{interior}}
+                  </div>
+              </div>
+          </div>
+          <div ng-if="options.safety.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
+              <div style="font-size:1.2em" ng-click="openSafety()">
+                  Safety
+                  <span class="pull-right"style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
+              </div>
+              <div ng-if="accordion.isSafetyOpen" style="font-size:0.8em; margin-top:10px; padding-left:20px">
+                  <div class="item" ng-repeat="safety in options.safety">
+                      <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{safety}}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+
+
+  <!-- <section style="font-weight:300">
+      <uib-accordion close-others="false">
+        <div uib-accordion-group style="border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd; margin:0 15px" is-open="accordion.isSpecificationOpen">
+            <uib-accordion-heading>
+                <span style="font-weight:300; font-size:0.8em">Specification </span><i class="fa" ng-class="{'fa-angle-up': accordion.isSpecificationOpen, 'fa-angle-down': !accordion.isSpecificationOpen}" style="position:absolute; right:15px; line-height:inherit; color:lightgray"></i>
+            </uib-accordion-heading>
+            <div style="text-align:left;">
+                <div ng-if="product.engine"><strong>Engine: </strong>{{product.engine}}</div>
+                <div ng-if="product.horsePower"><strong>Horsepower: </strong>{{product.horsePower}} hp</div>
+                <div ng-if="product.torque"><strong>Torque: </strong>{{product.torque}} lb-ft</div>
+                <div ng-if="product.mpgCity || product.mpgHighway"><strong>MPG: </strong>{{product.mpgCity}} city / {{product.mpgHighway}} highway</div>
+                <div ng-if="product.drivetrain"><strong>Drivetrain: </strong>{{product.drivetrain}}</div>
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" is-open="accordion.isExteriorOpen">
+            <uib-accordion-heading>
+                <span style="font-weight:300; font-size:0.8em">Exterior </span><i class="fa" ng-class="{'fa-angle-up': accordion.isExteriorOpen, 'fa-angle-down': !accordion.isExteriorOpen}" style="position:absolute; right:15px; line-height:inherit; color:lightgray"></i>
+            </uib-accordion-heading>
+            <div style="text-align:left;">
+                <div class="item" ng-repeat="exterior in options.exterior">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{exterior}}
+                </div>
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" is-open="accordion.isInteriorOpen">
+            <uib-accordion-heading>
+                <span style="font-weight:300; font-size:0.8em">Interior </span><i class="fa" ng-class="{'fa-angle-up': accordion.isInteriorOpen, 'fa-angle-down': !accordion.isInteriorOpen}" style="position:absolute; right:15px; line-height:inherit; color:lightgray"></i>
+            </uib-accordion-heading>
+            <div style="text-align:left;">
+                <div class="item" ng-repeat="interior in options.interior">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{interior}}
+                </div>
+            </div>
+        </div>
+        <div uib-accordion-group class="panel-default" is-open="accordion.isSafetyOpen">
+            <uib-accordion-heading>
+                <span style="font-weight:300; font-size:0.8em">Safety </span><i class="fa" ng-class="{'fa-angle-up': accordion.isSafetyOpen, 'fa-angle-down': !accordion.isSafetyOpen}" style="position:absolute; right:15px; line-height:inherit; color:lightgray"></i>
+            </uib-accordion-heading>
+            <div style="text-align:left;">
+                <div class="item" ng-repeat="safety in options.safety">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{safety}}
+                </div>
+            </div>
+        </div>
+      </uib-accordion>
+  </section> -->
+
+
+
+
+
+
+
+  <!--Tabs Widget-->
+  <section class="tabs-widget" ng-if="false">
+    <uib-tabset active="active">
+      <!--Tab1 (Tech Specs)-->
+      <uib-tab index="0" heading="Features">
+        <div class="container">
+          <div class="row">
+            <section class="tech-specs">
+                <div class="container">
+                  <div class="row">
+                    <!--Column 1-->
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                      <!--Item-->
+                      <div class="item" ng-repeat="option in options" ng-if="$even">
+                        <div class="row">
+                          <div class="col-lg-1 col-md-1 col-sm-2"><i class="fa fa-check-square"></i></div>
+                          <div class="col-lg-11 col-md-11 col-sm-10"><p class="p-style2">{{option.option}}</p></div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Column 2-->
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                      <!--Item-->
+                      <div class="item" ng-repeat="option in options" ng-if="$odd">
+                        <div class="row">
+                          <div class="col-lg-1 col-md-1 col-sm-2"><i class="fa fa-check-square"></i></div>
+                          <div class="col-lg-11 col-md-11 col-sm-10"><p class="p-style2">{{option.option}}</p></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+          </div>
+        </div>
+      </uib-tab>
+
+      <!--Tab2 (Specification)-->
+      <uib-tab index="1" heading="Specification">
+          <div class="container">
+            <div class="row">
+              <section class="tech-specs">
+                <div class="container">
+                  <div class="row">
+                      <h2 style="text-align:center">Coming Soon!</h2>
+                    <!-- <div class="col-lg-6 col-md-6 col-sm-6">
+                      <div class="item" ng-repeat="option in options" ng-if="$even">
+                        <div class="row">
+                          <div class="col-lg-4 col-md-4 col-sm-3"><i class="fa fa-cog"></i></div>
+                          <div class="col-lg-8 col-md-8 col-sm-9"><p class="p-style2">{{option.option}}</p></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                      <div class="item" ng-repeat="option in options" ng-if="$odd">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-4 col-sm-3"><i class="fa fa-cog"></i></div>
+                          <div class="col-lg-9 col-md-8 col-sm-9"><p class="p-style2">{{option.option}}</p></div>
+                        </div>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+      </uib-tab>
+    </uib-tabset>
+  </section><!--Tabs Widget Close-->
+
+  <!--Special Offer-->
+  <!-- <section class="special-offer">
+  	<div class="container">
+      <h2>Special offer</h2>
+      <div class="row">
+      	<div class="col-lg-3 col-md-3 col-sm-3">
+        	<div class="tile">
+            <div class="price-label">715,00 $</div>
+            <a href="#"><img src="img/offers/special-offer.png" alt="Special Offer"/></a>
+            <div class="footer"><a href="#">The Buccaneer</a></div>
+          </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1">
+        	<div class="sign">+</div>
+        </div>
+      	<div class="col-lg-3 col-md-3 col-sm-3">
+        	<div class="tile">
+            <div class="price-label">715,00 $</div>
+            <a href="#"><img src="img/offers/special-offer.png" alt="Special Offer"/></a>
+            <div class="footer"><a href="#">The Buccaneer</a></div>
+          </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1">
+        	<div class="sign">=</div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+        	<div class="offer">
+          	<h3 class="light-color">save</h3>
+            <h4 class="text-primary">100,00 $</h4>
+            <a class="btn btn-success" href="#">Buy for 1200$</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+</div><!--Page Content Close-->
