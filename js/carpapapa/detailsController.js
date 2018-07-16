@@ -1,11 +1,19 @@
 cpApp.controller('detailsController', ['$scope', '$routeParams', 'restService', function detailsController($scope, $routeParams, restService) {
 
+    var id = $routeParams.id;
+    var hours = [
+        'Sunday 11:00AM - 5:00PM',
+        'Monday Closed',
+        'Tuesday 10:00AM - 6:00PM',
+        'Wednesday 10:00AM - 6:00PM',
+        'Thursday 10:00AM - 6:00PM',
+        'Friday 10:00AM - 6:00PM',
+        'Saturday 11:00AM - 5:00PM'];
+
   init();
 
-  var id = $routeParams.id;
-
   $scope.accordion = {
-      isSpecificationOpen: false,
+      isSpecificationOpen: true,
       isExteriorOpen: false,
       isInteriorOpen: false,
       isSafetyOpen: false
@@ -15,6 +23,10 @@ cpApp.controller('detailsController', ['$scope', '$routeParams', 'restService', 
       exterior: [],
       interior: [],
       safety: []
+  }
+
+  $scope.back = function() {
+      window.history.back();
   }
 
   $scope.openSpecification = function() {
@@ -46,29 +58,38 @@ cpApp.controller('detailsController', ['$scope', '$routeParams', 'restService', 
 
           var slider = '';
           var flag = true;
-          angular.forEach(response.data.images, function(image) {
-              if (image.type == "DEFAULT") {
-                  slider = '<div class="ms-slide"><img src="masterslider/blank.gif" data-src="' + image.path + '" alt="Lorem ipsum"/>';
-                  $('#prod-gal').append(slider + '<img class="ms-thumb" src="' + image.path + '" alt="thumb" /></div>');
-                //   if (flag) {
-                //       $scope.$parent.image = image.path;
-                //   }
-            //   } else if (image.type == "THUMBNAIL") {
-            //       $('#prod-gal').append(slider + '<img class="ms-thumb" src="' + image.path + '" alt="thumb" /></div>');
-              }
-          })
+
+          console.log('testing', response.data.images);
+          if (!response.data.images || response.data.images.length === 0 || (response.data.images.length === 1 && response.data.images[0].type === 'ICON')) {
+              console.log('testing1');
+              slider = '<div class="ms-slide"><img src="masterslider/blank.gif" data-src="images/coming_soon.jpg" alt="Vehicle Photo"/>';
+              $('#prod-gal').append(slider + '<img class="ms-thumb" src="images/coming_soon.jpg" alt="thumb" width="829" height="726"/></div>');
+          } else {
+              console.log('testing2');
+              angular.forEach(response.data.images, function(image) {
+                  if (image.type == "DEFAULT") {
+                      slider = '<div class="ms-slide"><img src="masterslider/blank.gif" data-src="' + image.path + '" alt="Vehicle Photo"/>';
+                      $('#prod-gal').append(slider + '<img class="ms-thumb" src="' + image.path + '" alt="thumb" width="829" height="726"/></div>');
+                    //   if (flag) {
+                    //       $scope.$parent.image = image.path;
+                    //   }
+                //   } else if (image.type == "THUMBNAIL") {
+                //       $('#prod-gal').append(slider + '<img class="ms-thumb" src="' + image.path + '" alt="thumb" /></div>');
+                  }
+              })
+          }
 
           //Product Gallery
           if($('#prod-gal').length > 0) {
               var categorySlider = new MasterSlider();
-              categorySlider.control('thumblist' , {autohide:false ,dir:'h',align:'bottom', width:137, height:120, margin:15, space:0 , hideUnder:400});
+              categorySlider.control('thumblist' , {autohide:false ,dir:'h',align:'bottom', width:137, height:120, margin:15, space:0});
               categorySlider.setup('prod-gal' , {
-                      width:548,
-                      height:520,
+                      width:829,
+                      height:726,
                     //   width:550,
                     //   height:484,
                       speed: 25,
-                      preload:'all',
+                    //   preload:'all',
                       loop:true,
                       view:'fade'
               });
@@ -114,5 +135,8 @@ cpApp.controller('detailsController', ['$scope', '$routeParams', 'restService', 
   		$button.parent().find("input").val(newVal);
   		e.preventDefault();
   	});
+
+    var today = new Date();
+    $scope.hours = hours[today.getDay()];
   }
 }])

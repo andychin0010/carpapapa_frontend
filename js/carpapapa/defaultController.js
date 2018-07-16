@@ -9,10 +9,10 @@ cpApp.controller('defaultController', ['$scope', '$filter', 'restService', funct
           function success(response) {
             $scope.products = response.data;
 
-            angular.forEach(response.data, function(product) {
-                $('.brand-carousel .inner').append('<a class="item" href="#!/buy/details/' + product.id + '"><img style="height: 164px" src="' + product.images[0].path + '" alt="1"/><span>' + product.year + ' ' + product.make + '</br>' + $filter('currency')(product.price, '$', 0) + '</span></a>');
-                product.badge = 'sale';
-            })
+            // angular.forEach(response.data, function(product) {
+            //     $('.brand-carousel .inner').append('<a class="item" href="#!/buy/details/' + product.id + '"><img style="height: 164px" src="' + product.images[0].path + '" alt="1"/><span>' + product.year + ' ' + product.make + '</br>' + $filter('currency')(product.price, '$', 0) + '</span></a>');
+            //     product.badge = 'sale';
+            // })
 
             /*Initializing Brands Carousel Plugin
             *******************************************/

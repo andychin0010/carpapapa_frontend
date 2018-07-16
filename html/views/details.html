@@ -2,173 +2,214 @@
 <div class="page-content">
 
   <!--Breadcrumbs-->
-  <ol class="breadcrumb">
+  <!-- <ol class="breadcrumb">
     <li><a href="/">Home</a></li>
     <li><a href="#!/buy">Inventory</a></li>
     <li>{{product.make}} {{product.model}}</li>
-  </ol><!--Breadcrumbs Close-->
+  </ol> -->
+  <!--Breadcrumbs Close-->
+
+  <div style="margin:15px 0 0 15px; color:#666">
+      <a href="http://carpapapa.com" style="color:#666"><i class="fa fa-angle-left" aria-hidden="true"></i>&nbsp; Back</a>
+  </div>
 
   <!--Shopping Cart Message-->
-  <section class="cart-message">
+  <!-- <section class="cart-message">
   	<i class="fa fa-check-square"></i>
     <p class="p-style3">"Nikon" was successfully added to your cart.</p>
     <a class="btn-outlined-invert btn-success btn-sm" href="shopping-cart.html">View cart</a>
-  </section><!--Shopping Cart Message Close-->
+  </section> -->
+  <!--Shopping Cart Message Close-->
 
   <!--Catalog Single Item-->
-  <section class="catalog-single">
+  <section class="catalog-single" style="text-align:left">
   	<div class="container">
       <div class="row">
+        <div class="col-md-12 hidden-md hidden-lg" style="margin-bottom:24px">
+            <div style="padding:0 10px">
+                <div><span style="font-size:36px; font-weight:400">{{product.year}} {{product.make}} {{product.model}}</span></div>
+                <div>
+                    <span style="font-size:24px; font-weight:500">
+                        {{product.price | currency:"$":0}}
+                    </span>&nbsp;&nbsp;&nbsp;
+                    <span style="color:#666">
+                        {{product.mileage | number:0}} miles
+                    </span>
+                </div>
+            </div>
+        </div>
 
       	<!--Product Gallery-->
-        <div class="col-lg-6 col-md-6">
-          <div class="prod-gal master-slider" id="prod-gal">
-          </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                  <div class="prod-gal master-slider" id="prod-gal">
+                  </div>
+                </div>
+                <div class="col-md-4 hidden-xs hidden-sm">
+                    <div class="row" style="margin-bottom:24px">
+                        <div class="col-md-12">
+                            <span style="font-size:36px; font-weight:400">{{product.year}} {{product.make}} {{product.model}}</span>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:36px">
+                        <div class="col-md-6">
+                            <div style="color:#666">
+                                Listing Price
+                            </div>
+                            <div style="font-size:36px;font-weight:500">
+                                {{product.price | currency:"$":0}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="color:#666">
+                                Mileage
+                            </div>
+                            <div style="font-size:36px;font-weight:500">
+                                {{product.mileage | number:0}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:36px">
+                        <div class="col-md-12">
+                            <div style="border:1px solid #000;padding:12px;border-radius:6px">
+                                <div class="row" style="margin-bottom:12px;text-align:center">
+                                    <div class="col-md-12">
+                                        Fuel Economy
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom:12px">
+                                    <div class="col-md-12" style="text-align:center;">
+                                        <div style="display:inline-block;vertical-align:middle">
+                                            <div style="font-size:14px;color:#666">City:</div>
+                                            <div style="font-size:36px;font-weight:800">{{product.mpgCity}}</div>
+                                        </div>
+                                        <img style="display:inline-block;margin:0 30px;vertical-align:middle" src="/img/carpapapa/fuel_icon.png" alt="Smiley face" height="56" width="56">
+                                        <div style="display:inline-block;vertical-align:middle">
+                                            <div style="font-size:14px;color:#666">Hwy:</div>
+                                            <div style="font-size:36px;font-weight:800">{{product.mpgHighway}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="text-align:center">
+                                    <div class="col-md-12" style="font-size:10px;color:#666">
+                                        Actual results will vary for many reasons, including driving conditions and how you drive and maintain your vehicle.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:36px">
+                        <div class="col-sm-12" style="text-align:center">
+                            <div style="font-size:22px; font-weight:600">Carpapapa</div>
+                            <div style="padding-top:10px">
+                                <div><i class="fa fa-phone" aria-hidden="true"></i> <a style="color:#337ab7; font-size:20px; padding-right:5px; font-weight:400; font-size:14px;" href="tel:1-206-602-6047">&nbsp(206) 602-6047</a></div>
+                                <div><i class="fa fa-map-marker" aria-hidden="true"></i> <a style="color:#337ab7; font-size:20px; padding-right:5px; font-weight:400; font-size:14px;" href="http://maps.google.com/?q=Carpapapa+Auto+Group" target="_blank">&nbsp1111 24th AVE, Seattle, WA 98122</a></div>
+                                <div><i class="fa fa-clock-o" aria-hidden="true"></i> <span style="font-weight:400; font-size:14px;">&nbsp{{hours}}</span></div>
+                            </div>
+                            <div style="font-weight:300; font-size:14px"></div>
+                            <div style="padding-top:10px">
+                                <a style="color:#337ab7;font-size:20px;padding-right:5px" href="https://www.instagram.com/carpapapa/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <a style="color:#337ab7;font-size:20px;padding-right:5px" href="https://www.youtube.com/channel/UCHvJtny126Gh7bxRRfUX_qA" target="_blank"><i class="fa fa-youtube-square"></i></a>
+                                <a style="color:#337ab7;font-size:20px;padding-right:5px" href="https://www.facebook.com/carpapapa/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                                <a style="color:#337ab7;font-size:20px;padding-right:5px" href="https://www.yelp.com/biz/carpapapa-auto-group-seattle" target="_blank"><i class="fa fa-yelp"></i></a>
+                                <a style="color:#337ab7;font-size:20px;padding-right:5px" href="weixin://dl/chat?taison-" target="_blank"><i class="fa fa-weixin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
+
+
         <!--Product Description-->
-        <div class="col-lg-6 col-md-6">
+        <!-- <div class="col-lg-6 col-md-6 visible-md-block visible-lg-block">
           <h1>{{product.year}} {{product.make}} {{product.model}}</h1>
-          <!-- <div class="old-price">{{30000 | currency:"$":0}}</div> -->
           <div class="price">{{product.price | currency:"$":0}}</div>
           <span style="color:#b2b2b2;">{{product.mileage | number:0}} mi</span>
-          <!-- <p class="p-style2">{{product.description}}</p> -->
-          <!-- <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-5">
-              <h3>Tell friedns</h3>
-              <div class="social-links">
-                <a href="#"><i class="fa fa-tumblr-square"></i></a>
-                <a href="#"><i class="fa fa-pinterest-square"></i></a>
-                <a href="#"><i class="fa fa-facebook-square"></i></a>
-              </div>
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-7">
-              <h3>Tags</h3>
-              <div class="tags">
-                <a href="#">Nikon, </a>
-                <a href="#">camera, </a>
-                <a href="#">hd video</a>
-              </div>
-            </div>
-          </div> -->
-          <!-- <div class="promo-labels">
-            <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><span><i class="fa fa-truck"></i>Free delivery</span></div>
-            <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-space-shuttle"></i>Deliver even on Mars</div>
-            <div data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-shield"></i>Safe Buy</div>
-          </div> -->
-        </div>
+        </div> -->
       </div>
     </div>
   </section><!--Catalog Single Item Close-->
 
-
-
-  <section style="font-weight:300; margin-bottom:40px">
-      <div style="margin:0 15px">
-          <div style="border-top:1px solid #dddddd; padding:10px 15px">
-              <div style="font-size:1.2em" ng-click="openSpecification()">
-                  Specification
-                  <span class="pull-right" style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
-              </div>
-              <div ng-if="accordion.isSpecificationOpen" style="font-size:0.8em; margin-top:10px; padding-left:20px">
-                  <div ng-if="product.engine"><span style="font-weight:500">Engine: </span>{{product.engine}}</div>
-                  <div ng-if="product.horsePower"><span style="font-weight:500">Horsepower: </span>{{product.horsePower}} hp</div>
-                  <div ng-if="product.torque"><span style="font-weight:500">Torque: </span>{{product.torque}} lb-ft</div>
-                  <div ng-if="product.mpgCity || product.mpgHighway"><span style="font-weight:500">MPG: </span>{{product.mpgCity}} city / {{product.mpgHighway}} highway</div>
-                  <div ng-if="product.drivetrain"><span style="font-weight:500">Drivetrain: </span>{{product.drivetrain}}</div>
-              </div>
-          </div>
-          <div ng-if="options.exterior.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
-              <div style="font-size:1.2em" ng-click="openExterior()">
-                  Exterior
-                  <span class="pull-right" style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
-              </div>
-              <div ng-if="accordion.isExteriorOpen" style="font-size:0.8em; margin-top:10px; padding-left:20px">
-                  <div ng-repeat="exterior in options.exterior">
-                      <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{exterior}}
+  <section style="margin-bottom:36px">
+      <div class="container hidden-md hidden-lg">
+          <div class="row" style="padding:0 10px">
+              <div class="col-sm-12">
+                  <div style="font-size:22px; font-weight:600">Carpapapa</div>
+                  <div style="padding-top:10px">
+                      <div><i class="fa fa-map-marker" aria-hidden="true"></i> <a style="color:#337ab7; font-size:20px; padding-right:5px; font-weight:400; font-size:14px;" href="http://maps.google.com/?q=Carpapapa+Auto+Group" target="_blank">&nbsp1111 24th AVE, Seattle, WA 98122</a></div>
+                      <div><i class="fa fa-phone" aria-hidden="true"></i> <a style="color:#337ab7; font-size:20px; padding-right:5px; font-weight:400; font-size:14px;" href="tel:1-206-602-6047">&nbsp(206) 602-6047</a></div>
+                      <div><i class="fa fa-clock-o" aria-hidden="true"></i> <span style="font-weight:400; font-size:14px;">&nbsp{{hours}}</span></div>
                   </div>
-              </div>
-          </div>
-          <div ng-if="options.interior.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
-              <div style="font-size:1.2em" ng-click="openInterior()">
-                  Interior
-                  <span class="pull-right"style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
-              </div>
-              <div ng-if="accordion.isInteriorOpen" style="font-size:0.8em; margin-top:10px; padding-left:20px">
-                  <div ng-repeat="interior in options.interior">
-                      <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{interior}}
-                  </div>
-              </div>
-          </div>
-          <div ng-if="options.safety.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
-              <div style="font-size:1.2em" ng-click="openSafety()">
-                  Safety
-                  <span class="pull-right"style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
-              </div>
-              <div ng-if="accordion.isSafetyOpen" style="font-size:0.8em; margin-top:10px; padding-left:20px">
-                  <div class="item" ng-repeat="safety in options.safety">
-                      <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{safety}}
+                  <div style="font-weight:300; font-size:14px"></div>
+                  <div style="padding-top:10px">
+                      <a style="color:#337ab7;font-size:20px;padding-right:5px" href="https://www.instagram.com/carpapapa/" target="_blank"><i class="fa fa-instagram"></i></a>
+                      <a style="color:#337ab7;font-size:20px;padding-right:5px" href="https://www.youtube.com/channel/UCHvJtny126Gh7bxRRfUX_qA" target="_blank"><i class="fa fa-youtube-square"></i></a>
+                      <a style="color:#337ab7;font-size:20px;padding-right:5px" href="https://www.facebook.com/carpapapa/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                      <a style="color:#337ab7;font-size:20px;padding-right:5px" href="https://www.yelp.com/biz/carpapapa-auto-group-seattle" target="_blank"><i class="fa fa-yelp"></i></a>
+                      <a style="color:#337ab7;font-size:20px;padding-right:5px" href="weixin://dl/chat?taison-" target="_blank"><i class="fa fa-weixin"></i></a>
                   </div>
               </div>
           </div>
       </div>
   </section>
 
-
-
-
-  <!-- <section style="font-weight:300">
-      <uib-accordion close-others="false">
-        <div uib-accordion-group style="border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd; margin:0 15px" is-open="accordion.isSpecificationOpen">
-            <uib-accordion-heading>
-                <span style="font-weight:300; font-size:0.8em">Specification </span><i class="fa" ng-class="{'fa-angle-up': accordion.isSpecificationOpen, 'fa-angle-down': !accordion.isSpecificationOpen}" style="position:absolute; right:15px; line-height:inherit; color:lightgray"></i>
-            </uib-accordion-heading>
-            <div style="text-align:left;">
-                <div ng-if="product.engine"><strong>Engine: </strong>{{product.engine}}</div>
-                <div ng-if="product.horsePower"><strong>Horsepower: </strong>{{product.horsePower}} hp</div>
-                <div ng-if="product.torque"><strong>Torque: </strong>{{product.torque}} lb-ft</div>
-                <div ng-if="product.mpgCity || product.mpgHighway"><strong>MPG: </strong>{{product.mpgCity}} city / {{product.mpgHighway}} highway</div>
-                <div ng-if="product.drivetrain"><strong>Drivetrain: </strong>{{product.drivetrain}}</div>
-            </div>
-        </div>
-        <div uib-accordion-group class="panel-default" is-open="accordion.isExteriorOpen">
-            <uib-accordion-heading>
-                <span style="font-weight:300; font-size:0.8em">Exterior </span><i class="fa" ng-class="{'fa-angle-up': accordion.isExteriorOpen, 'fa-angle-down': !accordion.isExteriorOpen}" style="position:absolute; right:15px; line-height:inherit; color:lightgray"></i>
-            </uib-accordion-heading>
-            <div style="text-align:left;">
-                <div class="item" ng-repeat="exterior in options.exterior">
-                    <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{exterior}}
-                </div>
-            </div>
-        </div>
-        <div uib-accordion-group class="panel-default" is-open="accordion.isInteriorOpen">
-            <uib-accordion-heading>
-                <span style="font-weight:300; font-size:0.8em">Interior </span><i class="fa" ng-class="{'fa-angle-up': accordion.isInteriorOpen, 'fa-angle-down': !accordion.isInteriorOpen}" style="position:absolute; right:15px; line-height:inherit; color:lightgray"></i>
-            </uib-accordion-heading>
-            <div style="text-align:left;">
-                <div class="item" ng-repeat="interior in options.interior">
-                    <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{interior}}
-                </div>
-            </div>
-        </div>
-        <div uib-accordion-group class="panel-default" is-open="accordion.isSafetyOpen">
-            <uib-accordion-heading>
-                <span style="font-weight:300; font-size:0.8em">Safety </span><i class="fa" ng-class="{'fa-angle-up': accordion.isSafetyOpen, 'fa-angle-down': !accordion.isSafetyOpen}" style="position:absolute; right:15px; line-height:inherit; color:lightgray"></i>
-            </uib-accordion-heading>
-            <div style="text-align:left;">
-                <div class="item" ng-repeat="safety in options.safety">
-                    <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{safety}}
-                </div>
-            </div>
-        </div>
-      </uib-accordion>
-  </section> -->
-
-
-
-
-
-
+  <section style="font-weight:300; margin-bottom:36px">
+      <div class="container">
+          <div class="row">
+              <div style="margin:0 15px">
+                  <div style="border-top:1px solid #dddddd; padding:10px 15px">
+                      <div style="font-size:22px" ng-click="openSpecification()">
+                          Specification
+                          <span class="pull-right" style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div ng-if="accordion.isSpecificationOpen" style="font-size:14px; padding:12px">
+                          <div ng-if="product.engine"><span style="font-weight:500">Engine: </span>{{product.engine}}</div>
+                          <div ng-if="product.horsePower"><span style="font-weight:500">Horsepower: </span>{{product.horsePower}} hp</div>
+                          <div ng-if="product.torque"><span style="font-weight:500">Torque: </span>{{product.torque}} lb-ft</div>
+                          <div ng-if="product.mpgCity || product.mpgHighway"><span style="font-weight:500">MPG: </span>{{product.mpgCity}} city / {{product.mpgHighway}} highway</div>
+                          <div ng-if="product.drivetrain"><span style="font-weight:500">Drivetrain: </span>{{product.drivetrain}}</div>
+                      </div>
+                  </div>
+                  <div ng-if="options.exterior.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
+                      <div style="font-size:22px" ng-click="openExterior()">
+                          Exterior
+                          <span class="pull-right" style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div ng-if="accordion.isExteriorOpen" style="font-size:14px; padding:12px">
+                          <div ng-repeat="exterior in options.exterior">
+                              <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{exterior}}
+                          </div>
+                      </div>
+                  </div>
+                  <div ng-if="options.interior.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
+                      <div style="font-size:22px" ng-click="openInterior()">
+                          Interior
+                          <span class="pull-right"style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div ng-if="accordion.isInteriorOpen" style="font-size:14px; padding:12px">
+                          <div ng-repeat="interior in options.interior">
+                              <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{interior}}
+                          </div>
+                      </div>
+                  </div>
+                  <div ng-if="options.safety.length > 0" style="border-top:1px solid #dddddd; padding:10px 15px">
+                      <div style="font-size:22px" ng-click="openSafety()">
+                          Safety
+                          <span class="pull-right"style="line-height:inherit;"><i class="fa fa-angle-down"></i></span>
+                      </div>
+                      <div ng-if="accordion.isSafetyOpen" style="font-size:14px; padding:12px">
+                          <div class="item" ng-repeat="safety in options.safety">
+                              <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp; {{safety}}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
 
   <!--Tabs Widget-->
   <section class="tabs-widget" ng-if="false">
@@ -240,41 +281,4 @@
       </uib-tab>
     </uib-tabset>
   </section><!--Tabs Widget Close-->
-
-  <!--Special Offer-->
-  <!-- <section class="special-offer">
-  	<div class="container">
-      <h2>Special offer</h2>
-      <div class="row">
-      	<div class="col-lg-3 col-md-3 col-sm-3">
-        	<div class="tile">
-            <div class="price-label">715,00 $</div>
-            <a href="#"><img src="img/offers/special-offer.png" alt="Special Offer"/></a>
-            <div class="footer"><a href="#">The Buccaneer</a></div>
-          </div>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1">
-        	<div class="sign">+</div>
-        </div>
-      	<div class="col-lg-3 col-md-3 col-sm-3">
-        	<div class="tile">
-            <div class="price-label">715,00 $</div>
-            <a href="#"><img src="img/offers/special-offer.png" alt="Special Offer"/></a>
-            <div class="footer"><a href="#">The Buccaneer</a></div>
-          </div>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1">
-        	<div class="sign">=</div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-        	<div class="offer">
-          	<h3 class="light-color">save</h3>
-            <h4 class="text-primary">100,00 $</h4>
-            <a class="btn btn-success" href="#">Buy for 1200$</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
 </div><!--Page Content Close-->

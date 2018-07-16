@@ -30,6 +30,20 @@ cpApp.service('restService', ['$http', function($http) {
       })
   }
 
+  this.getProductMakes = function() {
+      return $http({
+          method: 'GET',
+          url: HOST + '/products/makes'
+      })
+  }
+
+  this.getProductColors = function() {
+      return $http({
+          method: 'GET',
+          url: HOST + '/products/colors'
+      })
+  }
+
   // this.getProducts = function() {
   //   $http({
   //       method: "GET",

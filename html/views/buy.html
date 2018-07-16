@@ -28,8 +28,8 @@
     <div class="container">
       <h2 class="with-sorting">Inventory</h2>
       <div class="sorting">
-        <a href="#">Sort by name</a>
-        <a href="#">Sort by price</a>
+        <a ng-class="{'sorted': sortByBrandAsc}" href="javascript:void(0)" ng-click="sortByBrand()">Sort by brand</a>
+        <a ng-class="{'sorted': sortByPriceAsc}" href="javascript:void(0)" ng-click="sortByPrice()">Sort by price</a>
       </div>
       <!-- <div class="subnav">
         <a href="#">iPhone cases</a>
@@ -74,11 +74,7 @@
                 <span class="clear clearChecks" ng-click="clearBrands()">Clear brands</span>
                 <select class="form-control" id="sel1" ng-init="brandFilter = brandFilter || 'Please select'" ng-model="brandFilter" ng-change="filter(brandFilter, colorFilter)">
                     <option disabled>Please select</option>
-                    <option>AUDI</option>
-                    <option>CHEVROLET</option>
-                    <option>MASERATI</option>
-                    <option>MERCEDES BENZ</option>
-                    <option>LAND ROVER</option>
+                    <option ng-repeat="make in makes">{{make}}</option>
                 </select>
             </section>
 
@@ -87,9 +83,7 @@
                 <span class="clear clearChecks" ng-click="clearColors()">Clear colors</span>
                 <select class="form-control" id="sel1" ng-init="colorFilter = colorFilter || 'Please select'" ng-model="colorFilter" ng-change="filter(brandFilter, colorFilter)">
                     <option disabled>Please select</option>
-                    <option>BLACK</option>
-                    <option>WHITE</option>
-                    <option>SILVER</option>
+                    <option ng-repeat="color in colors">{{color}}</option>
                 </select>
             </section>
 
@@ -180,7 +174,7 @@
                   <span ng-class="product.badge"></span>
                 </div>
                 <div class="price-label">{{product.price | currency:"$":0}}</div>
-                <a ng-href="#!/buy/details/{{product.id}}"><img ng-src="{{product.images[0].path}}" alt="1"/></a>
+                <a ng-href="#!/buy/details/{{product.id}}"><img ng-src="{{product.images[0] ? product.images[0].path : 'images/coming_soon_icon.jpg'}}" alt="1"/></a>
                 <div class="footer">
                   <a ng-href="#!/buy/details/{{product.id}}" style="font-weight: 500">{{product.year}} {{product.make}}</a>
                   <span style="color: #2f343b; font-weight:400">{{product.model}}</span>

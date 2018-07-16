@@ -15,8 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="google-site-verification" content="PNjS4V-k4PBtN1AHzwtVqHWjhAe4pu4E-N9CLODTZZg" />
     <!--Favicon-->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/carpapapa/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/carpapapa/favicon.ico" type="image/x-icon">
     <!--Master Slider Styles-->
     <link href="masterslider/style/masterslider.css" rel="stylesheet" media="screen">
     <!--Styles-->
@@ -149,6 +149,7 @@
             </li> -->
             <li class="hide-sm"><a href="/#!/home">Home</a></li>
             <li class="hide-sm"><a href="/#!/buy">Inventory</a></li>
+            <li class="hide-sm"><a href="/#!/about">About</a></li>
           	<!-- <li class="hide-sm"><a href="support.html">Contact</a></li> -->
           </ul>
         </nav>
@@ -158,7 +159,7 @@
     <div ng-view autoscroll="true"></div>
 
     <!--Sticky Buttons-->
-    <div class="sticky-btns">
+    <div class="sticky-btns" style="bottom:50px">
     	<form class="quick-contact ajax-form" method="post" name="quick-contact">
       	<h3>Contact us</h3>
         <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
@@ -239,9 +240,9 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <h4 style="">Contact</h4>
+                            <h4 class="visible-md visible-lg">Contact</h4>
                             <p class="p-style3" style="line-height:150%">
-                                +1 (206)602-6074<br/>
+                                <a href="tel:1-206-602-6074">(206) 602-6074</a><br/>
                                 <a href="mailto:chandler@carpapapa.com">chandler@carpapapa.com</a><br/>
                             </p>
                         </div>
@@ -249,7 +250,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12" style="text-align:center;margin-top:20px">
+                <div class="col-sm-12" style="text-align:center;margin-bottom:30px">
                     <div class="social">
                         <a href="https://www.instagram.com/carpapapa/" target="_blank"><i class="fa fa-instagram"></i></a>
                         <a href="https://www.youtube.com/channel/UCHvJtny126Gh7bxRRfUX_qA" target="_blank"><i class="fa fa-youtube-square"></i></a>
@@ -264,9 +265,29 @@
       </div>
     </footer><!--Footer Close-->
 
+    <div style="position:fixed;
+                  bottom:0;
+                  width:100%;
+                  font-size:14px;
+                  font-weight:300;
+                  z-index:10;
+                  text-align:center">
+        <div class="row">
+            <div class="col-xs-4" style="padding:10px; border-right:1px solid #bfbfbf; background-color:#81d8d0">
+                <a href="tel:1-206-602-6074" style="color:#ffffff; font-weight:400; font-size:18px"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp&nbspCall</a>
+            </div>
+            <div class="col-xs-4" style="padding:10px 0; border-right:1px solid #bfbfbf; background-color:#f2f2f2; font-size:18px">
+                <a href="http://maps.google.com/?q=Carpapapa+Auto+Group" target="_blank"><i class="fa fa-map-marker"></i>&nbsp&nbspMap</a>
+            </div>
+            <div class="col-xs-4" style="padding:10px 0; background-color:#f2f2f2; font-size:18px">
+                <a href="weixin://dl/chat?taison-" target="_blank"><i class="fa fa-weixin" aria-hidden="true"></i>&nbsp&nbspChat</a>
+            </div>
+        </div>
+    </div>
+
     <!--Javascript (jQuery) Libraries and Plugins-->
-		<script src="js/libs/jquery-1.11.1.min.js"></script>
-		<script src="js/libs/jquery-ui-1.10.4.custom.min.js"></script>
+	<script src="js/libs/jquery-1.11.1.min.js"></script>
+	<script src="js/libs/jquery-ui-1.10.4.custom.min.js"></script>
     <script src="js/libs/jquery.easing.min.js"></script>
     <script src="js/libs/angular.min.js"></script>
     <script src="js/libs/angular-route.min.js"></script>

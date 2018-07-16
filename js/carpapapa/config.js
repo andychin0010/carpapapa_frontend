@@ -18,6 +18,10 @@ cpApp.config(['$locationProvider', '$routeProvider',
         templateUrl: 'html/views/details.html',
         controller: 'detailsController'
       }).
+      when('/about', {
+         templateUrl: 'html/views/about.html',
+         controller: ''
+      }).
       otherwise('/');
   }
 ]);

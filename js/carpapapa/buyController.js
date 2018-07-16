@@ -3,7 +3,12 @@ cpApp.controller('buyController', ['$scope', '$filter', 'restService', function 
 
   init();
   getProducts();
+  getProductMakes();
+  getProductColors();
   getFeatures();
+
+  $scope.sortByPriceAsc = false;
+  $scope.sortByBrandAsc = false;
 
   $('#price-range').change(function() {
       $scope.filter();
@@ -41,6 +46,23 @@ cpApp.controller('buyController', ['$scope', '$filter', 'restService', function 
         );
     }
 
+    function getProductMakes() {
+        restService.getProductMakes().then(
+            function success(response) {
+                $scope.makes = response.data;
+                console.log('asdfasdf', response.data);
+            }
+        )
+    }
+
+    function getProductColors() {
+        restService.getProductColors().then(
+            function success(response) {
+                $scope.colors = response.data;
+                console.log('color', response.data);
+            }
+        )
+    }
 
     function getFeatures() {
         restService.getProducts(null, null, null, null, null, 'FEATURE').then(
@@ -109,6 +131,16 @@ $scope.clearBrands = function() {
 $scope.clearColors = function() {
     $scope.colorFilter = "Please select";
     $scope.filter();
+}
+
+$scope.sortByBrand = function() {
+    $scope.products = $filter('orderBy')($scope.products, 'make', $scope.sortByBrandAsc);
+    $scope.sortByBrandAsc = !$scope.sortByBrandAsc;
+}
+
+$scope.sortByPrice = function() {
+    $scope.products = $filter('orderBy')($scope.products, 'price', $scope.sortByPriceAsc);
+    $scope.sortByPriceAsc = !$scope.sortByPriceAsc;
 }
 
 function filterProducts(limit, minPrice, maxPrice, make, exColor) {

@@ -12812,12 +12812,12 @@ header .search-form .close-search:hover {
   color: #fff;
 }
 .catalog-single .prod-gal {
-  width: 100%;
+  /*width: 100%;*/
   border: 1px solid #b2b2b2;
   padding: 2px;
-  -webkit-border-radius: 5px 5px 0 0;
+  /*-webkit-border-radius: 5px 5px 0 0;
   -moz-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;*/
 }
 .catalog-single .prod-gal .ms-view {
   background: #fff;
